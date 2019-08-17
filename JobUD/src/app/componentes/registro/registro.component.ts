@@ -19,7 +19,8 @@ export class RegistroComponent implements OnInit {
   constructor(private router: Router,
     private AuthService: AuthService,
     private UsuaService: UsuaService,
-    private flashMensaje: FlashMessagesService
+    private flashMensaje: FlashMessagesService,
+    db: AngularFirestore
     ) { }
 
   

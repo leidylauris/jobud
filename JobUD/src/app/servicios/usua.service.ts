@@ -6,17 +6,24 @@ import { Usuario }from '../Interface/usuario';
 import {NgForm} from '@angular/forms'
 import * as firebase from 'firebase/app';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class UsuaService implements OnInit{
-  constructor() { }
+export class UsuaService {
+  coleccionUsuario: AngularFirestoreCollection<Usuario>;
+  usuarios: Observable<Usuario[]>;
+  constructor(private db: AngularFirestore,
+    private auth: AuthService) {
 
-  private db: AngularFirestore;
+      this.coleccionUsuario = this.db.collection('usuarios', ref => ref.orderBy('nombre', 'asc'));
+     }
+
+  
   private usuarioColeccion: AngularFirestoreCollection<Usuario>;
-  private auth: AuthService;
+  
   private DatosApiService: DatosApiService;
   private seleccionarUsuario: Usuario = {
     nombre: null,
@@ -25,14 +32,14 @@ export class UsuaService implements OnInit{
     rol: null
   }
 
-  ngOnInit(): void {}
+  
 
   /*crear_usuario (usuario: Usuario): Promise<DocumentReference> {
     return this.db.collection('usuario').add(usuario);
   }*/
 
- nuevo_usuario (usuario: NgForm): void {
+ nuevo_usuario (usuario: Usuario) {
     console.log("llegue");
-    this.DatosApiService.agregar_usuario(usuario.value);
+    this.coleccionUsuario.add(usuario);
   }
 }

@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
     this.authService.loginGoogleUsuario()
       .then ((res) => {
         this.authService.getAuth().subscribe(auth => {
+          debugger;
           if (auth) {
             this.emailUsuario = auth.email;
               if (/^[a-zA-Z]+@correo.udistrital.edu.co*/.test(auth.email)) {
@@ -57,6 +58,6 @@ export class LoginComponent implements OnInit {
   }
 
   onLoginRedireccionar () : void {
-    this.router.navigate(['inicio']);
+    this.router.navigate(['publicacion']);
   }
 }

@@ -10,6 +10,10 @@ import { environment } from "../environments/environment";
 import {AngularFireModule, FirebaseApp} from '@angular/fire';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { FlashMessagesService } from 'angular2-flash-messages';
+import {HttpClientModule, HttpClient} from '@angular/common/http';
+import { UsuaService } from './servicios/usua.service';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -25,6 +29,9 @@ import { config } from 'rxjs';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
+    AngularFirestoreModule,
+    AngularFireAuthModule,
     //AngularFireModule.initializeApp(environment.firebaseConfi),
     FormsModule,
     FlashMessagesModule,
@@ -32,7 +39,7 @@ import { config } from 'rxjs';
     AngularFireModule.initializeApp(environment.firebaseConfi),
     AngularFireDatabaseModule
   ],
-  providers: [AngularFireAuth, FlashMessagesService],
+  providers: [AngularFireAuth, FlashMessagesService, UsuaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
