@@ -13,7 +13,7 @@ export class UsuarioService {
   usuarios: Observable<Usuario[]>;
   constructor(private db: AngularFirestore,
     private auth: AuthService) { 
-      this.coleccionUsuario = this.db.collection('usuarios', ref => ref.orderBy('nombre', 'asc'));
+      this.coleccionUsuario = this.db.collection('usuario', ref => ref.orderBy('nombre', 'asc'));
     }
   /*getIud() {
     if (this.auth.getAuth) {
@@ -27,6 +27,13 @@ export class UsuarioService {
   crear_Perfil (value:Usuario) {
     console.log(value);
     return this.db.collection('perfil').doc(this.getIud()).set(value);
+
+     private seleccionarUsuario: Usuario = {
+    nombre: null,
+    apellido: null,
+    email: null,
+    rol: null
+  }
   }*/
   
   nuevo_usuario (usuario: Usuario) {

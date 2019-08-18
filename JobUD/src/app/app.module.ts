@@ -11,20 +11,23 @@ import {AngularFireModule, FirebaseApp} from '@angular/fire';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import {HttpClientModule, HttpClient} from '@angular/common/http';
-import { UsuaService } from './servicios/usua.service';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { config } from 'rxjs';
+import { PublicacionComponent } from './componentes/publicacion/publicacion.component';
+import { OlvidarContrasenaComponent } from './componentes/olvidar-contrasena/olvidar-contrasena.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegistroComponent,
-    InicioComponent
+    InicioComponent,
+    PublicacionComponent,
+    OlvidarContrasenaComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,7 @@ import { config } from 'rxjs';
     AngularFireModule.initializeApp(environment.firebaseConfi),
     AngularFireDatabaseModule
   ],
-  providers: [AngularFireAuth, FlashMessagesService, UsuaService],
+  providers: [AngularFireAuth, FlashMessagesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

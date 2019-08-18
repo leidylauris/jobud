@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { AuthService } from '../../servicios/auth.service';
 import { UsuarioService } from '../../servicios/usuario.service';
 import { AngularFirestore, AngularFirestoreCollection, DocumentReference } from '@angular/fire/firestore';
@@ -29,15 +29,17 @@ export class RegistroComponent implements OnInit {
   private rol : string;
   private email : string;
   private contrasena : string;
+  private contrasena2 : string;
   
 
   ngOnInit() {
   }
  
-  agregarUsuario(form: NgForm): void {
+  agregarUsuario() {
+    if (this.contrasena == this.contrasena2){
     this.AuthService.registrarUsuario(this.email, this.contrasena)
     .then ((res) => {
-      this.flashMensaje.show('Usuario creado correctamente.',
+      this.flashMensaje.show('Usuario creado correctamente',
       { cssClass: 'alert-success', timeout: 4000 });
       
       const usuario = {
@@ -46,8 +48,7 @@ export class RegistroComponent implements OnInit {
         email : this.email,
         rol : this.rol
       };
-
-      console.log(usuario);
+      
       this.UsuarioService.nuevo_usuario(usuario); 
       
       //this.router.navigate(['inicio']);
@@ -56,5 +57,10 @@ export class RegistroComponent implements OnInit {
         this.flashMensaje.show('Error:' && err.message,
           { cssClass: 'alert-danger', timeout: 4000 });
       });
+    }else{
+      this.flashMensaje.show('Las contraseñas no coinciden',
+          { cssClass: 'alert-danger', timeout: 4000 });
+    }
   }
+
 }
