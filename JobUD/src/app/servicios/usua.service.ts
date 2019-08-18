@@ -25,12 +25,12 @@ export class UsuaService {
   private usuarioColeccion: AngularFirestoreCollection<Usuario>;
   
   private DatosApiService: DatosApiService;
-  private seleccionarUsuario: Usuario = {
+  /*private seleccionarUsuario: Usuario = {
     nombre: null,
     apellido: null,
     email: null,
     rol: null
-  }
+  }*/
 
   
 

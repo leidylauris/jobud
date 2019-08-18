@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import { AuthService } from '../../servicios/auth.service';
-import { UsuaService } from '../../servicios/usua.service';
+import { UsuarioService } from '../../servicios/usuario.service';
 import { AngularFirestore, AngularFirestoreCollection, DocumentReference } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
@@ -18,7 +18,7 @@ export class RegistroComponent implements OnInit {
   public activeModal : NgbActiveModal;
   constructor(private router: Router,
     private AuthService: AuthService,
-    private UsuaService: UsuaService,
+    private UsuarioService: UsuarioService,
     private flashMensaje: FlashMessagesService,
     db: AngularFirestore
     ) { }
@@ -40,15 +40,15 @@ export class RegistroComponent implements OnInit {
       this.flashMensaje.show('Usuario creado correctamente.',
       { cssClass: 'alert-success', timeout: 4000 });
       
-      /*let usuario: Usuario = {
+      const usuario = {
         nombre : this.nombre,
         apellido : this.apellido,
         email : this.email,
         rol : this.rol
-      }*/
+      };
 
-      console.log(form.value);
-      this.UsuaService.nuevo_usuario(form.value); 
+      console.log(usuario);
+      this.UsuarioService.nuevo_usuario(usuario); 
       
       //this.router.navigate(['inicio']);
      
