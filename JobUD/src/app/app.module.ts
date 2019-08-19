@@ -20,6 +20,8 @@ import { config } from 'rxjs';
 import { PublicacionComponent } from './componentes/publicacion/publicacion.component';
 import { OlvidarContrasenaComponent } from './componentes/olvidar-contrasena/olvidar-contrasena.component';
 import { CambioContrasenaComponent } from './componentes/cambio-contrasena/cambio-contrasena.component';
+import { ModalFormularioComponent } from './componentes/modal-formulario/modal-formulario.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { CambioContrasenaComponent } from './componentes/cambio-contrasena/cambi
     InicioComponent,
     PublicacionComponent,
     OlvidarContrasenaComponent,
-    CambioContrasenaComponent
+    CambioContrasenaComponent,
+    ModalFormularioComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,8 @@ import { CambioContrasenaComponent } from './componentes/cambio-contrasena/cambi
     FlashMessagesModule,
     //incializar firebase
     AngularFireModule.initializeApp(environment.firebaseConfi),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    BrowserAnimationsModule
   ],
   providers: [AngularFireAuth, FlashMessagesService],
   bootstrap: [AppComponent]
