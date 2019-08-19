@@ -9,6 +9,9 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { switchMap } from 'rxjs/operators';
 import { Usuario } from '../../Interface/usuario';
 import { Observable } from 'rxjs';
+import { MatDialog, MatDialogConfig } from '@angular/material';
+import { CambioContrasenaComponent } from '../cambio-contrasena/cambio-contrasena.component';
+import { ModalFormularioComponent } from '../modal-formulario/modal-formulario.component';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +26,8 @@ export class LoginComponent implements OnInit {
     public flashMensaje: FlashMessagesService,
     public authService: AuthService,
     private UsuarioService: UsuarioService,
-    public db: AngularFirestore) { }
+    public db: AngularFirestore,
+    private dialog: MatDialog) { }
 
   private email: string = '';
   private contrasena: string = '';
@@ -114,6 +118,9 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  abrirform(){
+    this.dialog.open(ModalFormularioComponent);
+  }
   /*abrirmodal(){
     const dialogRef = this.dialog.open(ModalFormularioComponent, {
       width: '400px',

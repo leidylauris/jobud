@@ -22,6 +22,7 @@ import { OlvidarContrasenaComponent } from './componentes/olvidar-contrasena/olv
 import { CambioContrasenaComponent } from './componentes/cambio-contrasena/cambio-contrasena.component';
 import { ModalFormularioComponent } from './componentes/modal-formulario/modal-formulario.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -46,9 +47,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     //incializar firebase
     AngularFireModule.initializeApp(environment.firebaseConfi),
     AngularFireDatabaseModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   providers: [AngularFireAuth, FlashMessagesService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [CambioContrasenaComponent]
 })
 export class AppModule { }

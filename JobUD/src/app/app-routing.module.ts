@@ -6,6 +6,7 @@ import { InicioComponent } from './componentes/inicio/inicio.component';
 import { PublicacionComponent } from './componentes/publicacion/publicacion.component';
 import { OlvidarContrasenaComponent } from './componentes/olvidar-contrasena/olvidar-contrasena.component'; 
 import { CambioContrasenaComponent } from './componentes/cambio-contrasena/cambio-contrasena.component'; 
+import { ModalFormularioComponent } from './componentes/modal-formulario/modal-formulario.component'; 
 
  //se pasa por parametros la rutas que se van a trabajar
 const routes: Routes = [];
@@ -18,7 +19,8 @@ export const rootRouterConfig: Routes = [
   { path: 'inicio', component: InicioComponent },
   { path: 'publicacion', component: PublicacionComponent },
   { path: 'olvidar-contrasena', component: OlvidarContrasenaComponent },
-  { path: 'cambio-contrasena', component: CambioContrasenaComponent }
+  { path: 'cambio-contrasena', component: CambioContrasenaComponent },
+  { path: 'modal-formulario', component: ModalFormularioComponent }
 ];
 
 @NgModule({
