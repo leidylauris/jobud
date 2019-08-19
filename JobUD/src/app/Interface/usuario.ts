@@ -3,4 +3,5 @@ export interface Usuario{
     apellido?: string;
     email: string;
     rol: string;
+    ingreso?: boolean;
 }

@@ -27,6 +27,7 @@ export class RegistroComponent implements OnInit {
   private nombre : string = '';
   private apellido : string;
   private rol : string;
+  private ingreso : boolean;
   private email : string;
   private contrasena : string;
   private contrasena2 : string;
@@ -38,7 +39,7 @@ export class RegistroComponent implements OnInit {
   agregarUsuario() {
     if (this.contrasena == this.contrasena2){
     this.AuthService.registrarUsuario(this.email, this.contrasena)
-    .then ((res) => {
+    .then ((res: any) => {
       this.flashMensaje.show('Usuario creado correctamente',
       { cssClass: 'alert-success', timeout: 4000 });
       
@@ -46,10 +47,11 @@ export class RegistroComponent implements OnInit {
         nombre : this.nombre,
         apellido : this.apellido,
         email : this.email,
-        rol : this.rol
+        rol : this.rol,
+        ingreso: true
       };
-      
-      this.UsuarioService.nuevo_usuario(usuario); 
+
+      this.UsuarioService.nuevo_usuario(res.user.uid, usuario); 
       
       //this.router.navigate(['inicio']);
      

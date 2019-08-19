@@ -19,6 +19,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { config } from 'rxjs';
 import { PublicacionComponent } from './componentes/publicacion/publicacion.component';
 import { OlvidarContrasenaComponent } from './componentes/olvidar-contrasena/olvidar-contrasena.component';
+import { CambioContrasenaComponent } from './componentes/cambio-contrasena/cambio-contrasena.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { OlvidarContrasenaComponent } from './componentes/olvidar-contrasena/olv
     RegistroComponent,
     InicioComponent,
     PublicacionComponent,
-    OlvidarContrasenaComponent
+    OlvidarContrasenaComponent,
+    CambioContrasenaComponent
   ],
   imports: [
     BrowserModule,

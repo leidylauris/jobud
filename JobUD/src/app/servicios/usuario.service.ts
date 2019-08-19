@@ -13,7 +13,7 @@ export class UsuarioService {
   usuarios: Observable<Usuario[]>;
   constructor(private db: AngularFirestore,
     private auth: AuthService) { 
-      this.coleccionUsuario = this.db.collection('usuario', ref => ref.orderBy('nombre', 'asc'));
+      this.coleccionUsuario = this.db.collection('usuario'); //aca!!jajaja aac da la ruta 
     }
   /*getIud() {
     if (this.auth.getAuth) {
@@ -36,9 +36,17 @@ export class UsuarioService {
   }
   }*/
   
-  nuevo_usuario (usuario: Usuario) {
+  nuevo_usuario (uid: string, usuario: Usuario) {
     console.log("llegue");
-    this.coleccionUsuario.add(usuario);
+    this.coleccionUsuario.doc(uid).set(usuario);// y aaca guarda
+  }
+
+  recuperarContrasena(email: string){
+    var afs = firebase.auth(); 
+    afs.sendPasswordResetEmail(email)
+      .then(function(error) {
+        console.log(error);
+      });
   }
   
 }
