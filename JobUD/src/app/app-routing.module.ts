@@ -14,7 +14,7 @@ const routes: Routes = [];
 export const rootRouterConfig: Routes = [
 
  
-  { path: 'login', component: LoginComponent },
+  { path: '', component: LoginComponent },
   { path: 'registro', component: RegistroComponent },
   { path: 'inicio', component: InicioComponent },
   { path: 'publicacion', component: PublicacionComponent },
