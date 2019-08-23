@@ -4,4 +4,6 @@ export interface Usuario{
     email: string;
     rol: string;
     ingreso?: boolean;
+    rutUrl?: string;
+    camaraUrl?: string;
 }

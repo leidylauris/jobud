@@ -12,6 +12,7 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import {HttpClientModule, HttpClient} from '@angular/common/http';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import {AngularFireDatabaseModule} from '@angular/fire/database';
@@ -41,6 +42,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     HttpClientModule,
     AngularFirestoreModule,
     AngularFireAuthModule,
+    AngularFireStorageModule,
     //AngularFireModule.initializeApp(environment.firebaseConfi),
     FormsModule,
     FlashMessagesModule,

@@ -3,29 +3,41 @@
     <h2 class="h4 text-gray-900 mb-2">¿Quieres unirte a JOBUD?</h2>
     <p class="mb-4">Si eres empresario y quieres pertenerce a JOBUD <br> envia tus datos para validarlos</p>
   </div>
-  <form  >
+  <form name="formMensaje" #formMensaje="ngForm" (ngSubmit)="agregarMensaje()" >
     <div class="form-group">          
-      <select name="rol" class="form-control form-control-user" [(ngModel)]="tipo" placeholder="Seleccionar">
+      <select name="rol" class="form-control form-control-user" [(ngModel)]="tipo" required="true">
         <option value="Estudiante">Persona natural</option>
-        <option value="Empresario">Persona Juridica</option>
+        <option value="Empresario">Persona Jurídica</option>
       </select>
     </div>
-      <div class="form-group">
-        <input type="text" class="form-control form-control-user" id="nit" placeholder="Nit"
-        required="true" name="nit"  [(ngModel)]="nit" pattern="[A-Za-z]">
+    <div class="form-group">
+      <div class="custom-file">
+        <input type="file" class="custom-file-input" id="customFileLang" lang="es" id="rut" name="rut" 
+        required="true" accept=" application/pdf" [(ngModel)]="rut" (change)="cargarRut($event)">
+        <label class="custom-file-label" for="customFileLang">Rut</label>
       </div>
-      <div class="form-group">
-        <input type="text" class="form-control form-control-user" id="nombre" placeholder="Razón social"
-        required="true" name="nombre" pattern="[A-Za-z]" [(ngModel)]="nombre">
-    
     </div>
+    <div class="form-group">
+      <div class="custom-file">
+        <input type="file" class="custom-file-input" id="customFileLang" lang="es" id="camara" name="camara" 
+        required="true" accept=" application/pdf" [(ngModel)]="camara" (change)="cargarCamara($event)">
+        <label class="custom-file-label" for="customFileLang">Cámara y comercio</label>
+      </div>
+    </div>
+     <!-- <div class="form-group">
+        <input type="text" class="form-control form-control-user" id="nit" placeholder="Razon Social"
+        required="true" name="nit"  [(ngModel)]="nit" pattern="[A-Za-z]" (change)="cargarCamara($event)">
+      </div>
+    <div class="form-group">
+      <div class="custom-file">
+        <input type="file" class="custom-file-input" id="customFileLang" lang="es" id="rut" name="rut" 
+        required="true" accept=" application/pdf" [(ngModel)]="rut">
+        <label class="custom-file-label" for="customFileLang">Cámara y comercio</label>
+      </div>
+    </div>--> 
     <div class="form-group">
       <input type="email" class="form-control form-control-user" id="email" placeholder="Correo electrónico"
       required="true" name="email" [(ngModel)]="email">
-    </div>
-    <div class="form-group">
-      <input type="tel" class="form-control form-control-user" id="telefono" placeholder="Telefono"
-      required="true" name="telefono" [(ngModel)]="telefono">
     </div>
     <br>
     <button type="submit" class="btn btn-primary btn-user btn-block">

@@ -1,7 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { AuthService } from '../../servicios/auth.service';
 import { UsuarioService } from '../../servicios/usuario.service';
-import { AngularFirestore, AngularFirestoreCollection, DocumentReference } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Usuario }from '../../Interface/usuario';
